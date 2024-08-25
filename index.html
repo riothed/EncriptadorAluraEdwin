@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+    <!-- Mi <head> contiene metadatos y enlaces a recursos para la apariencia de la página web: Título de la pestaña del navegador, el CSS de estilos, icono para la pestaña, uso del "width=device-width para que el ancho de la pagina coincida con el dispositivo", "initial-scale=1.0" indicando que no hay zoom aplicado.-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/mascota.ico">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>RAMTHED EncriptadorTexto".</title>
+</head>
+<body data-dark>
+
+    <!-- muestra dos logotipos alineados uno junto al otro, ambos dentro de un enlace. Si el enlace (<a>) tuviera un href apuntando a otra página, hacer clic en cualquiera de las imágenes llevaría al usuario a esa página. Por ahora, dado que href="#", no hay redirección, solo se recarga la página actual.-->
+
+    <header>
+        <a href="#">
+            <img src="./assets/logo.svg" alt="alura-logo" class="alura-logo">
+            <img src="./assets/mascota1.png" alt="mascota" class="mascota-logo">
+        </a>
+    </header>
+
+  
+
+    <main class="main">
+        <section class="encriptador">
+            <textarea class="encriptar" placeholder="Ingrese el texto aquí..."></textarea>
+            <div class="aviso-encriptador">
+                <img src="./assets/aviso.svg" alt="aviso-imagen" class="img-aviso">
+                <p class="aviso-texto">Sólo letras minúsculas y sin acentos...</p>
+            </div>
+
+            <div class="encriptador-container">
+                <button type="submit" class="btn-encriptar">Encriptar</button>
+                <button type="submit" class="btn-desencriptar">Desencriptar</button>
+            </div>
+        </section>
+
+        <section class="tarjeta-texto">
+
+            <div class="tarjeta-container">
+
+                <img src="./assets/muñeco.svg" alt="muñeco-tarjeta" class="img-muñeco">
+                <p class="texto-uno">Ningún mensaje fue encontrado</p>
+                <p class="texto-dos">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+
+            <textarea type="mensaje" class="evaluar" readonly></textarea>
+            <button type="submit" class="btn-copy">Copiar Texto</button>
+
+        </section>
+    </main>
+
+
+
+    <footer>
+        <p class="copy-right">&copy; 2024 Todos los derechos reservados.</p>
+
+        <a href="https://www.linkedin.com/in/edwin-james-ramirez-b6b78313/" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/linkedin.svg" alt="Enlace al perfil de LinkedIn de Edwin Ramirez" class="linkedin">
+        </a>
+
+        <a href="https://github.com/riothed" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/github.svg" alt="Enlace al perfil de GitHub de Edwin Ramirez" class="github">
+        </a>
+    </footer>
+  <!-- 
+    <button class="dark-theme-btn">🌙</button>
+-->
+
+
+    <script src="./main.js"></script>
+     <!--
+    <script src="./dark-theme.js" type="module"></script>
+    -->
+
+    
+
+
+</body>
+</html>
