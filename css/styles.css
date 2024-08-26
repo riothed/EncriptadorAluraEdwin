@@ -76,10 +76,10 @@ header .mascota-logo {
 
     display: flex;
     flex-direction: row;
-    /*background: url(../assets/portada-2.png) no-repeat;*/
-    background: linear-gradient(rgba(0, 0, 0, 0.388), rgba(0, 0, 0, 0.5)), url(../assets/portada-2.png) no-repeat center/cover;
-    /*background-size: cover;
-    background-position: center;*/
+
+    background: linear-gradient(rgba(0, 0, 0, 0.388), rgba(0, 0, 0, 0.5)), url(../imagenes/portada-2.png) no-repeat center/cover;
+
+    
     background-color: rgb(171, 202, 239);
 }
 
@@ -88,11 +88,6 @@ header .mascota-logo {
     width: 60%;
     margin: 168px 0px 0px 140px;
     background: transparent;
-    /*
-    width: 60%;
-    max-width: 800px; /* Limitar el ancho máximo */
-    /*margin: 10vh auto 0 10vw; /* Márgenes superiores e izquierdos relativos */
-
 
 }
 
@@ -134,10 +129,6 @@ header .mascota-logo {
     line-height: 150%;
     opacity: 0.8;
     color: white;
-
-    /*
-    color: var(--medium-gray);
-    */
 
 }
 
@@ -376,13 +367,6 @@ footer {
         color: var(--medium-blue);
 }
 
-.dark-mode {
-
-    background-color: var(--color-dark-mode);
-    color: #ffff;
-    z-index: 999;
-}
-
 .mostrar-aviso {
 
     background: #0A3871;
@@ -490,8 +474,6 @@ footer {
         padding: 2px;
         background: var(--dark-blue);
 
-        
-        
     } 
 
 

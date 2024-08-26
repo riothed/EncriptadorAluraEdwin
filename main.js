@@ -17,123 +17,69 @@ if (btnEncriptar && btnDesencriptar && txtEncriptar && textoAviso && respuesta &
 
     //Botón "Encriptar"
     btnEncriptar.addEventListener('click', e=> 
-    {
-    //e.preventDefault(); : Previene el comportamiento predeterminado del formulario (por ejemplo, evitar la recarga de la página al enviar el formulario)
-    e.preventDefault();
-    let valorTexto = txtEncriptar.value;
-    
-    // Función para validar el texto
-    // Normalización y eliminación de caracteres especiales
-    let txt = valorTexto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "" );
-    console.log(txt);
-
-    // Función para mostrar mensajes de advertencia
-    function mostrarAviso(mensaje) 
-    {
-        textoAviso.classList.add('mostrar-aviso');
-        textoAviso.textContent = mensaje;
-
-        setTimeout(() => {
-            textoAviso.classList.remove('mostrar-aviso');
-        }, 2000);
-    }
-
-    // Función para encriptar el texto
-    function encriptarTexto(texto) 
-    {
-        const encriptaciones = {
-            'e': 'enter',
-            'i': 'imes',
-            'a': 'ai',
-            'o': 'ober',
-            'u': 'ufat'
-        };
-        return texto.replace(/[eioua]/g, match => encriptaciones[match]);
-    }
-
-
-    // Validaciones
-    if (valorTexto === "") 
         {
-            mostrarAviso("El campo de texto no debe estar vacío");
-        } 
-        else if (valorTexto !== txt) 
+            //e.preventDefault(); : Previene el comportamiento predeterminado del formulario (por ejemplo, evitar la recarga de la página al enviar el formulario)
+            e.preventDefault();
+            let valorTexto = txtEncriptar.value;
+            
+            // Función para validar el texto
+            // Normalización y eliminación de caracteres especiales
+            let txt = valorTexto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "" );
+            console.log(txt);
+
+            // Función para mostrar mensajes de advertencia
+            function mostrarAviso(mensaje) 
             {
-            mostrarAviso("El texto no debe tener acentos ni caracteres especiales (ñ,/,%,$ etc)");
-            } 
-            else if (valorTexto !== valorTexto.toLowerCase())   
+                textoAviso.classList.add('mostrar-aviso');
+                textoAviso.textContent = mensaje;
+
+                setTimeout(() => {
+                    textoAviso.classList.remove('mostrar-aviso');
+                }, 2000);
+            }
+
+            // Función para encriptar el texto
+            function encriptarTexto(texto) 
+            {
+                const encriptaciones = {
+                    'e': 'enter',
+                    'i': 'imes',
+                    'a': 'ai',
+                    'o': 'ober',
+                    'u': 'ufat'
+                };
+                return texto.replace(/[eioua]/g, match => encriptaciones[match]);
+            }
+
+
+            // Validaciones
+            if (valorTexto === "") 
                 {
-                mostrarAviso("El texto debe ser en minúsculas solamente");
-                }
-    /*
-    if(valorTexto == "") {
+                    mostrarAviso("El campo de texto no debe estar vacío");
+                } 
+                else if (valorTexto !== txt) 
+                    {
+                    mostrarAviso("El texto no debe tener acentos ni caracteres especiales (ñ,/,%,$ etc)");
+                    } 
+                    else if (valorTexto !== valorTexto.toLowerCase())   
+                        {
+                        mostrarAviso("El texto debe ser en minúsculas solamente");
+                        }
+            
+            // Función para encriptar el texto
+            else 
+            {
+                const textoEncriptado = encriptarTexto(valorTexto);
 
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "900";
-        textoAviso.textContent = "El campo de texto no debe estar vacío";
+                // Mostrar el resultado encriptado
+                    respuesta.innerHTML = textoEncriptado;
+                    btnCopy.style.visibility = 'inherit';
+                    contenidoTarjetaContainer.classList.add('hidden'); // Ocultar en lugar de remover
 
-        setTimeout(()=> {
+            }
 
-            textoAviso.removeAttribute('style');
+        }
 
-        }, 2000);
-
-
-    } else if(valorTexto !== txt ) {
-
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "800";
-        textoAviso.textContent = "El texto no debe tener acentos ni caratéres especiales (ñ,/,%,$ etc)";
-
-        setTimeout(()=> {
-
-            textoAviso.removeAttribute('style');
-
-        }, 2000);
-
-
-    } else if(valorTexto !== valorTexto.toLowerCase()) {
-
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "800";
-        textoAviso.textContent = "El texto debe ser en minúsculas solamente";
-
-        setTimeout(()=> {
-
-            textoAviso.removeAttribute('style');
-
-        }, 2000);
-    */
-    // Función para encriptar el texto
-     else 
-     {
-        const textoEncriptado = encriptarTexto(valorTexto);
-
-        // Mostrar el resultado encriptado
-            respuesta.innerHTML = textoEncriptado;
-            btnCopy.style.visibility = 'inherit';
-            contenidoTarjetaContainer.classList.add('hidden'); // Ocultar en lugar de remover
-
-        /*
-        valorTexto = valorTexto.replace(/e/mg, 'enter');
-        valorTexto = valorTexto.replace(/i/mg, 'imes');
-        valorTexto = valorTexto.replace(/a/mg, 'ai');
-        valorTexto = valorTexto.replace(/o/mg, 'ober');
-        valorTexto = valorTexto.replace(/u/mg, 'ufat');
-        */
-        // Función para mostrar el resultado encriptado
-        /*
-        respuesta.innerHTML = valorTexto;
-        btnCopy.style.visibility = 'inherit';
-        contenidoTarjetaContainer.remove();
-        */
-
-    }
-
-    }
     );
 
 
@@ -194,74 +140,7 @@ if (btnEncriptar && btnDesencriptar && txtEncriptar && textoAviso && respuesta &
         contenidoTarjetaContainer.classList.add('hidden');
     }
 
-        /*
-
-    e.preventDefault();
-    let valorTexto = txtEncriptar.value;
-    
-
-    let txt = valorTexto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "" );
-    console.log(txt);
-
-    if(valorTexto == "") {
-
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "800";
-        textoAviso.textContent = "El campo de texto no debe estar vacío";
-
-        setTimeout(()=> {
-
-            textoAviso.removeAttribute('style');
-
-        }, 1500);
-
-
-    } else if(valorTexto !== txt ) {
-
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "800";
-        textoAviso.textContent = "El texto no debe tener acentos ni caratéres especiales...";
-
-        setTimeout(()=> {
-
-            textoAviso.removeAttribute('style');
-
-        }, 1500);
-
-
-    } else if(valorTexto !== valorTexto.toLowerCase()) {
-
-        textoAviso.style.background = "#0A3871";
-        textoAviso.style.color = "#FFFF";
-        textoAviso.style.fontWeight = "800";
-        textoAviso.textContent = "El texto debe ser en minúsculas...";
-
-        setTimeout(()=> {
-
-            textoAviso.removeAttribute('style');
-
-        }, 1500);
-
-
-    } else {
-
-        valorTexto = valorTexto.replace(/enter/mg, 'e');
-        valorTexto = valorTexto.replace(/imes/mg, 'i');
-        valorTexto = valorTexto.replace(/ai/mg, 'a');
-        valorTexto = valorTexto.replace(/ober/mg, 'o');
-        valorTexto = valorTexto.replace(/ufat/mg, 'u');
-
-        respuesta.innerHTML = valorTexto;
-        btnCopy.style.visibility = 'inherit';
-        contenidoTarjetaContainer.remove();
-
-    }
-
-    */
-
-   /* });*/
+   
 
 
 /* Botón "Copiar Texto"*/
@@ -280,13 +159,5 @@ if (btnEncriptar && btnDesencriptar && txtEncriptar && textoAviso && respuesta &
                 console.error('Error al copiar el texto:', err);
             });
 
-
-        /*
-        e.preventDefault();
-
-        let copiarTexto = respuesta;
-        copiarTexto.select();
-        d.execCommand('copy');
-        */
     });
 }
